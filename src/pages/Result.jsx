@@ -4,9 +4,16 @@ import Score from "../components/ResultPage/Score";
 import LoveIndex from "../components/ResultPage/LoveIndex";
 import ResultMessage from "../components/ResultPage/ResultMessage";
 import Button from "../components/ResultPage/Button";
+import { useRecoilValue } from "recoil";
+import { resultMbti } from "../store/resultMbti";
+import { mbtiResultList } from "../data/response";
 
 const Result = () => {
   // logic
+
+  const myMbti = useRecoilValue(resultMbti);
+
+  const withSeonjae = mbtiResultList.find((res) => res.type === myMbti);
 
   // view
   return (
@@ -16,17 +23,17 @@ const Result = () => {
       {/* END: 로고 텍스트 */}
       <div className="py-4">
         {/* START: Score 컴포넌트 */}
-          <Score />
+          <Score data={withSeonjae.score} />
         {/* END: Score 컴포넌트 */}
       </div>
       <div className="py-4">
         {/* START: LoveIndex 컴포넌트 */}
-          <LoveIndex />
+          <LoveIndex data={withSeonjae.loveIndexList} />
         {/* END: LoveIndex 컴포넌트 */}
       </div>
       <div className="py-4">
         {/* START: ResultMessage 컴포넌트 */}
-          <ResultMessage />
+          <ResultMessage data={withSeonjae.text} />
         {/* END: ResultMessage 컴포넌트*/}
       </div>
       <div className="py-4">

@@ -1,53 +1,20 @@
 import React from 'react'
 
-const LoveIndex = () => {
+const LoveIndex = ({ data }) => {
     return (
         <div className="px-4">
             <ul>
-                {/* START: LoveIndex 요소 */}
-                <li className="flex gap-1 py-3 first:pt-0 last:pb-0">
-                    <span className="text-base min-w-20 max-w-20">애정표현력</span>
-                    <div className="w-full h-4 bg-mbti-light-pink rounded-xl overflow-hidden relative">
-                        <span
-                            className="block h-full bg-mbti-pink transition-all rounded-xl"
-                            style={{ width: `70%` }}
-                        ></span>
-                    </div>
-                </li>
-                {/* END: LoveIndex 요소 */}
-                {/* START: LoveIndex 요소 */}
-                <li className="flex gap-1 py-3 first:pt-0 last:pb-0">
-                    <span className="text-base min-w-20 max-w-20">눈치력</span>
-                    <div className="w-full h-4 bg-mbti-light-pink rounded-xl overflow-hidden relative">
-                        <span
-                            className="block h-full bg-mbti-pink transition-all rounded-xl"
-                            style={{ width: `50%` }}
-                        ></span>
-                    </div>
-                </li>
-                {/* END: LoveIndex 요소 */}
-                {/* START: LoveIndex 요소 */}
-                <li className="flex gap-1 py-3 first:pt-0 last:pb-0">
-                    <span className="text-base min-w-20 max-w-20">썸 추진력</span>
-                    <div className="w-full h-4 bg-mbti-light-pink rounded-xl overflow-hidden relative">
-                        <span
-                            className="block h-full bg-mbti-pink transition-all rounded-xl"
-                            style={{ width: `80%` }}
-                        ></span>
-                    </div>
-                </li>
-                {/* END: LoveIndex 요소 */}
-                {/* START: LoveIndex 요소 */}
-                <li className="flex gap-1 py-3 first:pt-0 last:pb-0">
-                    <span className="text-base min-w-20 max-w-20">19금력</span>
-                    <div className="w-full h-4 bg-mbti-light-pink rounded-xl overflow-hidden relative">
-                        <span
-                            className="block h-full bg-mbti-pink transition-all rounded-xl"
-                            style={{ width: `60%` }}
-                        ></span>
-                    </div>
-                </li>
-                {/* END: LoveIndex 요소 */}
+                {data.map((item, idx) =>
+                    <li className="flex gap-1 py-3 first:pt-0 last:pb-0" key={idx}>
+                        <span className="text-base min-w-20 max-w-20">{item.text}</span>
+                        <div className="w-full h-4 bg-mbti-light-pink rounded-xl overflow-hidden relative">
+                            <span
+                                className="block h-full bg-mbti-pink transition-all rounded-xl"
+                                style={{ width: `${item.score}%` }}
+                            ></span>
+                        </div>
+                    </li>
+                )}
             </ul>
         </div>
     )
